@@ -15,6 +15,22 @@ fun main(){
     contaYoga.saldo = 1500.0
 
     println(contaShiryu.titular)
+
+    val numeroX = 10
+    var numeroY = numeroX
+    ++numeroY
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+    val contaJoao = Conta()
+    contaJoao.titular = "João"
+
+    var contaMaria = contaJoao;
+    contaMaria.titular = "Maria"
+
+    println("titular conta João: ${contaJoao.titular}")
+    println("titular conta Maria: ${contaMaria.titular}")
+
 }
 
 class Conta{
