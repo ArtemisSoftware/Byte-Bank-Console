@@ -2,7 +2,7 @@ class Gerente (nome: String, cpf: String, salario : Double, val senha: Int) : Fu
 
     override val bonificacao: Double
         get() {
-            return salario * 0.2
+            return super.bonificacao + salario
         }
 
     fun autenticacar(senha : Int): Boolean {
