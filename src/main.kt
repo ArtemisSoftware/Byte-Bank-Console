@@ -5,30 +5,30 @@ fun main(){
     val contaYoga = Conta()
     contaYoga.titular = "Yoga"
     contaYoga.numero = 100
-    contaYoga.setSaldo(500.0)
+    contaYoga.deposita(500.0)
 
     println(contaYoga.titular)
-    println(contaYoga.getSaldo())
+    println(contaYoga.saldo)
 
     val contaShiryu = Conta()
     contaShiryu.titular = "Shiryu"
     contaYoga.numero = 200
-    contaYoga.setSaldo(1500.0)
+    contaYoga.deposita(1500.0)
 
     println(contaShiryu.titular)
-    println(contaShiryu.getSaldo())
+    println(contaShiryu.saldo)
 
     println("Depósito na conta do Yoga")
     contaYoga.deposita(50.0)
-    println(contaYoga.getSaldo())
+    println(contaYoga.saldo)
 
     println("Depósito na conta do Shiryu")
     contaShiryu.deposita(150.0)
-    println(contaShiryu.getSaldo())
+    println(contaShiryu.saldo)
 
     println("Levantamento na conta do Yoga")
     contaYoga.levantamento(50.0)
-    println(contaYoga.getSaldo())
+    println(contaYoga.saldo)
 
     println("Transferencia do Yoga para o Shiryu")
     if(contaYoga.transferir(100.0, contaShiryu)){
@@ -38,8 +38,8 @@ fun main(){
         println("Transferencia não realizada")
     }
 
-    println(contaYoga.getSaldo())
-    println(contaShiryu.getSaldo())
+    println(contaYoga.saldo)
+    println(contaShiryu.saldo)
 
 }
 
@@ -49,10 +49,13 @@ class Conta{
 
     var titular = "Chaka"
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set
 
     fun deposita(valor : Double){
-        this.saldo += valor
+        if(valor > 0) {
+            this.saldo += valor
+        }
     }
 
     fun levantamento(valor : Double){
@@ -73,15 +76,15 @@ class Conta{
         }
     }
 
-    fun getSaldo() : Double{
-        return saldo
-    }
-
-    fun setSaldo(valor: Double){
-        if(valor > 0) {
-            saldo = valor
-        }
-    }
+//    fun getSaldo() : Double{
+//        return saldo
+//    }
+//
+//    fun setSaldo(valor: Double){
+//        if(valor > 0) {
+//            saldo = valor
+//        }
+//    }
 }
 
 fun testaCondicoes(saldo : Double){
