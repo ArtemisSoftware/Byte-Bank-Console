@@ -30,6 +30,17 @@ fun main(){
     contaYoga.levantamento(50.0)
     println(contaYoga.saldo)
 
+    println("Transferencia do Yoga para o Shiryu")
+    if(contaYoga.transferir(100.0, contaShiryu)){
+        println("Transferencia realizada com sucesso")
+    }
+    else{
+        println("Transferencia não realizada")
+    }
+
+    println(contaYoga.saldo)
+    println(contaShiryu.saldo)
+
 }
 
 
@@ -48,6 +59,17 @@ class Conta{
 
         if(saldo >= valor){
             this.saldo -= valor
+        }
+    }
+
+    fun transferir(valor : Double, contaDestino : Conta): Boolean {
+        if(saldo >= valor){
+            saldo -= valor
+            contaDestino.saldo +=valor
+            return true
+        }
+        else{
+            return false
         }
     }
 }
