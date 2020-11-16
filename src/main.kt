@@ -2,23 +2,26 @@
 fun main(){
     println("Bem vindo ao Bytebank")
 
-    for(i in 1..5 step 1) {
+    val contaYoga = Conta()
+    contaYoga.titular = "Yoga"
+    contaYoga.numero = 100
+    contaYoga.saldo = 500.0
 
-        if(i == 2){
-            continue
-        }
+    println(contaYoga.titular)
 
-        val titular = "Milo $i"
-        val numeroConta = 2000 + i
-        var saldo =  i + 2.0
+    val contaShiryu = Conta()
+    contaShiryu.titular = "Shiryu"
+    contaYoga.numero = 200
+    contaYoga.saldo = 1500.0
 
-        println("Titular $titular")
-        println("Numero da conta $numeroConta")
-        println("Saldo da conta $saldo")
+    println(contaShiryu.titular)
+}
 
-        testaCondicoes(saldo)
-        println()
-    }
+class Conta{
+
+    var titular = "Chaka"
+    var numero = 0
+    var saldo = 0.0
 
 }
 
