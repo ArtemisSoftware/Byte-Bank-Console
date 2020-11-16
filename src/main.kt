@@ -19,18 +19,20 @@ fun main(){
     println(contaShiryu.saldo)
 
     println("Depósito na conta do Yoga")
-    deposita(contaYoga, 50.0)
+    contaYoga.deposita(50.0)
     println(contaYoga.saldo)
 
     println("Depósito na conta do Shiryu")
-    deposita(contaShiryu, 150.0)
+    contaShiryu.deposita(150.0)
     println(contaShiryu.saldo)
 
+    println("Levantamento na conta do Yoga")
+    contaYoga.levantamento(50.0)
+    println(contaYoga.saldo)
+
 }
 
-fun deposita(conta : Conta, valor : Double){
-    conta.saldo += valor
-}
+
 
 class Conta{
 
@@ -38,6 +40,16 @@ class Conta{
     var numero = 0
     var saldo = 0.0
 
+    fun deposita(valor : Double){
+        this.saldo += valor
+    }
+
+    fun levantamento(valor : Double){
+
+        if(saldo >= valor){
+            this.saldo -= valor
+        }
+    }
 }
 
 fun testaCondicoes(saldo : Double){
