@@ -1,7 +1,7 @@
 class SistemaInterno {
 
-    fun iniciarSessao(admin: FuncionarioAdmin, senha : Int){
-        if(admin.autenticacar(senha) == true){
+    fun iniciarSessao(admin: Autenticavel, senha : Int){
+        if(admin.autenticar(senha) == true){
             println("Bem vindo ao Bytebank")
         }
         else{
