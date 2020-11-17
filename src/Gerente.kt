@@ -5,5 +5,7 @@ class Gerente (nome: String, cpf: String, salario : Double, senha: Int) : Funcio
             return salario
         }
 
-
+    override fun autenticar(senha: Int): Boolean {
+        return super<Autenticavel>.autenticar(senha)
+    }
 }

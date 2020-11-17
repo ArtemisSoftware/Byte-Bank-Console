@@ -5,6 +5,9 @@ class Diretor (nome: String, cpf: String, salario : Double, senha: Int, val plr 
             return salario + plr
         }
 
+    override fun autenticar(senha: Int): Boolean {
+        return super<FuncionarioAdmin>.autenticar(senha)
+    }
 
 
 }
