@@ -2,7 +2,6 @@
 fun main(){
     println("Bem vindo ao Bytebank")
 
-    val contaYoga = Conta(titular = "Yoga", numero = 100)
 
     val contaCorrente = ContaCorrente("Saga", 1000)
     val contaPoupanca = ContaPoupanca("Seya", 1001)
