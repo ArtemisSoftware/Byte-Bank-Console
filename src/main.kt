@@ -1,92 +1,18 @@
 
 fun main(){
-    println("Bem vindo ao Bytebank")
-
-    val contaYoga = Conta(titular = "Yoga", numero = 100)
-    contaYoga.deposita(500.0)
-
-    println(contaYoga.titular)
-    println(contaYoga.saldo)
-
-    val contaShiryu = Conta(numero =  200, titular = "Shiryu")
-    contaYoga.deposita(1500.0)
-
-    println(contaShiryu.titular)
-    println(contaShiryu.saldo)
-
-    println("Depósito na conta do Yoga")
-    contaYoga.deposita(50.0)
-    println(contaYoga.saldo)
-
-    println("Depósito na conta do Shiryu")
-    contaShiryu.deposita(150.0)
-    println(contaShiryu.saldo)
-
-    println("Levantamento na conta do Yoga")
-    contaYoga.levantamento(50.0)
-    println(contaYoga.saldo)
-
-    println("Transferencia do Yoga para o Shiryu")
-    if(contaYoga.transferir(100.0, contaShiryu)){
-        println("Transferencia realizada com sucesso")
-    }
-    else{
-        println("Transferencia não realizada")
-    }
-
-    println(contaYoga.saldo)
-    println(contaShiryu.saldo)
-
-}
 
 
+    val contaCorrente = ContaCorrente("Saga", 1000)
+    val contaPoupanca = ContaPoupanca("Seya", 1001)
 
-class Conta(var titular: String, val numero: Int) {
+    val shiryu = Gerente("Shiryu", "34534-5443.22", 1000.0, 1234)
+    val ikki = Diretor("Ikki", "7766-444.33.2", 100000.0, 1234, 11.0)
+    val yoga = Gerente("Yoga", "333.22.11.55", 2500.0, 1234)
+    val cliente = Cliente("Aldebaran", "222-444.232", 4321)
 
-    var saldo = 0.0
-        private set
+    val sistemaInterno = SistemaInterno()
 
-    fun deposita(valor : Double){
-        if(valor > 0) {
-            this.saldo += valor
-        }
-    }
+    sistemaInterno.iniciarSessao(shiryu, 1234)
+    sistemaInterno.iniciarSessao(cliente, 1234)
 
-    fun levantamento(valor : Double){
-
-        if(saldo >= valor){
-            this.saldo -= valor
-        }
-    }
-
-    fun transferir(valor : Double, contaDestino : Conta): Boolean {
-        if(saldo >= valor){
-            saldo -= valor
-            contaDestino.deposita(valor)
-            return true
-        }
-        else{
-            return false
-        }
-    }
-
-//    fun getSaldo() : Double{
-//        return saldo
-//    }
-//
-//    fun setSaldo(valor: Double){
-//        if(valor > 0) {
-//            saldo = valor
-//        }
-//    }
-}
-
-fun testaCondicoes(saldo : Double){
-
-    when {
-        saldo > 0.0 -> println("Saldo positivo")
-        saldo == 0.0 ->  println("Saldo é 0")
-        else ->  println("Saldo negativo")
-
-    }
 }
