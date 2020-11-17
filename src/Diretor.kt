@@ -2,7 +2,7 @@ class Diretor (nome: String, cpf: String, salario : Double, val senha: Int, val 
 
     override val bonificacao: Double
         get() {
-            return super.bonificacao + salario + plr
+            return salario + plr
         }
 
     fun autenticacar(senha : Int): Boolean {
