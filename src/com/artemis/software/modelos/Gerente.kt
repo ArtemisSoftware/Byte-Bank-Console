@@ -1,4 +1,7 @@
-class Gerente (nome: String, cpf: String, salario : Double, senha: Int) : FuncionarioAdmin(nome, cpf, salario, senha), Autenticavel{
+package com.artemis.software.modelos
+
+class Gerente (nome: String, cpf: String, salario : Double, senha: Int) : FuncionarioAdmin(nome, cpf, salario, senha),
+    Autenticavel {
 
     override val bonificacao: Double
         get() {

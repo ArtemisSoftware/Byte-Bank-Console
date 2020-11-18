@@ -6,6 +6,7 @@ Tutorial de Kotlin
 
 App para testar e explorar todas as funcionalidades do Kotlin
 
-###Tópicos explorados
+### Tópicos explorados
     -Orientação a objetos
     -Herança, polimorfismo e Interface
+    -Pacotes e composição

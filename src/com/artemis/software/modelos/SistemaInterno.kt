@@ -1,3 +1,5 @@
+package com.artemis.software.modelos
+
 class SistemaInterno {
 
     fun iniciarSessao(admin: Autenticavel, senha : Int){

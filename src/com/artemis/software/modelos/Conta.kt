@@ -1,7 +1,20 @@
-abstract class Conta(var titular: String, val numero: Int) {
+package com.artemis.software.modelos
+
+
+abstract class Conta(var titular: Cliente, val numero: Int) {
 
     var saldo = 0.0
         protected set
+
+    companion object Contador {
+        var total = 0
+            private set
+    }
+
+
+    init {
+       ++total
+    }
 
     fun deposita(valor : Double){
         if(valor > 0) {
