@@ -25,8 +25,13 @@ fun main(){
 
     println("Total de contas: ${Conta.total}")
 
-    val endereco = Endereco(logradouro = "Em cima")
+    val endereco1 = Endereco(logradouro = "Em cima", cep = "234")
+    val endereco2 = Endereco(logradouro = "Em baixo", cep = "234")
 
-    println("Endereço: ${endereco}")
+    println("Endereço: ${endereco1}")
+
+    println("endereco1 hashcode : ${endereco1.hashCode()}")
+    println("endereco2 hashcode : ${endereco2.hashCode()}")
+    println("Endereços iguais: ${endereco1.equals(endereco2)}")
 
 }
