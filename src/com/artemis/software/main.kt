@@ -26,3 +26,7 @@ fun main(){
     println("Total de contas: ${Conta.total}")
 
 }
+
+fun imprime(valor: Any){
+
+}
