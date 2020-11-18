@@ -1,4 +1,4 @@
-package modelos
+package com.artemis.software.modelos
 
 /**
  * Não utilizar interfaces para dodos sensiveis. As variáveis ficam todas publicas.

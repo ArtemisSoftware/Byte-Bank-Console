@@ -1,8 +1,6 @@
-package modelos
+package com.artemis.software.modelos
 
-import modelos.Conta
-
-class ContaPoupanca(titular: String, numero: Int): Conta(titular, numero) {
+class ContaPoupanca(titular: Cliente, numero: Int): Conta(titular, numero) {
 
     override fun levantamento(valor: Double) {
         if(this.saldo >= valor){

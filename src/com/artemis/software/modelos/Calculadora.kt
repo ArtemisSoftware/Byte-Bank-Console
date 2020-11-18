@@ -1,6 +1,4 @@
-package modelos
-
-import modelos.Funcionario
+package com.artemis.software.modelos
 
 class Calculadora {
 

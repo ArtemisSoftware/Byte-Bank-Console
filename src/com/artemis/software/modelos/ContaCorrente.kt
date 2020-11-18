@@ -1,8 +1,6 @@
-package modelos
+package com.artemis.software.modelos
 
-import modelos.Conta
-
-class ContaCorrente(titular: String, numero: Int): Conta(titular, numero){
+class ContaCorrente(titular: Cliente, numero: Int): Conta(titular, numero){
 
     override fun levantamento(valor: Double) {
         val valorComTaxa = valor + 0.1

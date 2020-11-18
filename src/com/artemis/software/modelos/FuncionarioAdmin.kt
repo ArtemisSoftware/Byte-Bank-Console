@@ -1,6 +1,4 @@
-package modelos
-
-import modelos.Funcionario
+package com.artemis.software.modelos
 
 abstract class FuncionarioAdmin (nome : String, cpf : String, salario : Double, val  senha : Int) : Funcionario(nome, cpf, salario){
 

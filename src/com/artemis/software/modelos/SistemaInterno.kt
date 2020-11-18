@@ -1,6 +1,4 @@
-package modelos
-
-import modelos.Autenticavel
+package com.artemis.software.modelos
 
 class SistemaInterno {
 

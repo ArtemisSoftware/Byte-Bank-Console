@@ -1,4 +1,4 @@
-package modelos
+package com.artemis.software.modelos
 
 class Gerente (nome: String, cpf: String, salario : Double, senha: Int) : FuncionarioAdmin(nome, cpf, salario, senha),
     Autenticavel {
