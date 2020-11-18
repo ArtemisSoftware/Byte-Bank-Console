@@ -25,8 +25,8 @@ fun main(){
 
     println("Total de contas: ${Conta.total}")
 
-}
+    val endereco = Endereco(logradouro = "Em cima")
 
-fun imprime(valor: Any){
+    println("Endereço: ${endereco}")
 
 }
