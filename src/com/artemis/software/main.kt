@@ -3,10 +3,8 @@ package com.artemis.software
 import com.artemis.software.modelos.*
 
 
+
 fun main(){
-
-
-
 
     val shiryu = Gerente("Shiryu", "34534-5443.22", 1000.0, 1234)
     val ikki = Diretor("Ikki", "7766-444.33.2", 100000.0, 1234, 11.0)
@@ -24,5 +22,7 @@ fun main(){
 
     sistemaInterno.iniciarSessao(shiryu, 1234)
     sistemaInterno.iniciarSessao(joao, 1234)
+
+    println("Total de contas: ${Conta.total}")
 
 }
