@@ -1,3 +1,7 @@
+package modelos
+
+import modelos.Funcionario
+
 class Calculadora {
 
     var total: Double = 0.0

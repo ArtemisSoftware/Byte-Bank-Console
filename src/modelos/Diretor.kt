@@ -1,4 +1,7 @@
-class Diretor (nome: String, cpf: String, salario : Double, senha: Int, val plr : Double) : FuncionarioAdmin(nome, cpf, salario, senha), Autenticavel{
+package modelos
+
+class Diretor (nome: String, cpf: String, salario : Double, senha: Int, val plr : Double) : FuncionarioAdmin(nome, cpf, salario, senha),
+    Autenticavel {
 
     override val bonificacao: Double
         get() {
