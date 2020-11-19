@@ -1,5 +1,6 @@
 package com.artemis.software
 
+import com.artemis.software.exception.FalhaAutenticacaoException
 import com.artemis.software.exception.SaldoInsuficienteException
 import com.artemis.software.modelos.*
 import java.lang.ClassCastException
@@ -24,7 +25,14 @@ fun main(){
         println("Erro na Transferencia")
         e.printStackTrace()
     }
-
+    catch (e : FalhaAutenticacaoException){
+        println("Erro na autenticacao")
+        e.printStackTrace()
+    }
+    catch (e : Exception){
+        println("Erro generico")
+        e.printStackTrace()
+    }
 }
 
 fun funcao1(){
