@@ -1,37 +1,59 @@
 package com.artemis.software
 
+import com.artemis.software.exception.FalhaAutenticacaoException
+import com.artemis.software.exception.SaldoInsuficienteException
 import com.artemis.software.modelos.*
-
+import java.lang.ClassCastException
+import java.lang.Exception
 
 
 fun main(){
 
-    val shiryu = Gerente("Shiryu", "34534-5443.22", 1000.0, 1234)
-    val ikki = Diretor("Ikki", "7766-444.33.2", 100000.0, 1234, 11.0)
-    val yoga = Gerente("Yoga", "333.22.11.55", 2500.0, 1234)
     val joao = Cliente("joao", "222-444.232", Endereco(), 4321)
     val maria = Cliente("maria", "222-444.232", Endereco(),4321)
 
     val contaJoao = ContaCorrente(joao, 1000)
     val contaPoupanca = ContaPoupanca(maria, 1001)
 
-    println("Nome do titular da conta: ${contaJoao.titular.nome}")
-    println("Endereço do titular da conta: ${contaJoao.titular.endereco.cidade}")
+    contaJoao.deposita(1000.0)
 
-    val sistemaInterno = SistemaInterno()
+    try{
+        contaJoao.transferir(30.0, contaPoupanca, 4321)
+        println("Transferencia realizada com sucesso")
+    }
+    catch (e : SaldoInsuficienteException){
+        println("Erro na Transferencia")
+        e.printStackTrace()
+    }
+    catch (e : FalhaAutenticacaoException){
+        println("Erro na autenticacao")
+        e.printStackTrace()
+    }
+    catch (e : Exception){
+        println("Erro generico")
+        e.printStackTrace()
+    }
 
-    sistemaInterno.iniciarSessao(shiryu, 1234)
-    sistemaInterno.iniciarSessao(joao, 1234)
+    var enderecoNulo: Endereco? = null
+    println(enderecoNulo?.logradouro?.length)
 
-    println("Total de contas: ${Conta.total}")
+    enderecoNulo = null
+    enderecoNulo?.let {
+        println("enderecoNulo?.logradouro it-: ${it.logradouro.length}")
 
-    val endereco1 = Endereco(logradouro = "Em cima", cep = "234")
-    val endereco2 = Endereco(logradouro = "Em baixo", cep = "234")
+    }
 
-    println("Endereço: ${endereco1}")
+    var enderecoNaoNulo= Endereco(logradouro = "o meu", complemento = "longo")
+    println(enderecoNaoNulo.logradouro.length)
 
-    println("endereco1 hashcode : ${endereco1.hashCode()}")
-    println("endereco2 hashcode : ${endereco2.hashCode()}")
-    println("Endereços iguais: ${endereco1.equals(endereco2)}")
+    enderecoNaoNulo.let {
+        println("enderecoNaoNulo it: ${it}")
 
+        val tamanhoComplemento: Int = it.complemento?.length ?: throw  IllegalArgumentException("Complemento Não pode ser vazio")
+
+        println("tamanhoComplemento: ${tamanhoComplemento}")
+
+    }
+
+    println("fim!!")
 }

@@ -10,3 +10,4 @@ App para testar e explorar todas as funcionalidades do Kotlin
     -Orientação a objetos
     -Herança, polimorfismo e Interface
     -Pacotes e composição
+    -Exceptions e referências nulas

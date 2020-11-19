@@ -6,9 +6,6 @@ package com.artemis.software.modelos
  */
 interface Autenticavel {
 
-    val senha: Int
 
-    fun autenticar(senha : Int) : Boolean {
-        return (this.senha == senha)
-    }
+    fun autenticar(senha : Int) : Boolean
 }

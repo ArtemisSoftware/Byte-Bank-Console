@@ -1,7 +1,10 @@
 package com.artemis.software.modelos
 
+import com.artemis.software.exception.FalhaAutenticacaoException
+import com.artemis.software.exception.SaldoInsuficienteException
 
-abstract class Conta(var titular: Cliente, val numero: Int) {
+
+abstract class Conta(var titular: Cliente, val numero: Int) : Autenticavel {
 
     var saldo = 0.0
         protected set
@@ -24,15 +27,21 @@ abstract class Conta(var titular: Cliente, val numero: Int) {
 
     abstract fun levantamento(valor : Double)
 
-    fun transferir(valor : Double, contaDestino : Conta): Boolean {
-        if(saldo >= valor){
-            saldo -= valor
-            contaDestino.deposita(valor)
-            return true
+    fun transferir(valor : Double, contaDestino : Conta, senha: Int) {
+
+        if(saldo < valor){
+            throw SaldoInsuficienteException("O saldo é isuficiente, saldo atual ${saldo}")
         }
-        else{
-            return false
+        if(!autenticar(senha)){
+            throw FalhaAutenticacaoException()
         }
+
+        saldo -= valor
+        contaDestino.deposita(valor)
+    }
+
+    override fun autenticar(senha: Int): Boolean {
+        return titular.autenticar(senha)
     }
 
 }
