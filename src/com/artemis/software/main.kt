@@ -8,14 +8,19 @@ import java.lang.Exception
 
 fun main(){
 
-    println("início main")
+    val joao = Cliente("joao", "222-444.232", Endereco(), 4321)
+    val maria = Cliente("maria", "222-444.232", Endereco(),4321)
+
+    val contaJoao = ContaCorrente(joao, 1000)
+    val contaPoupanca = ContaPoupanca(maria, 1001)
 
     try{
-        funcao2()
+        contaJoao.transferir(30000.0, contaPoupanca)
+        println("Transferencia realizada com sucesso")
     }
     catch (e : SaldoInsuficienteException){
+        println("Erro na Transferencia")
         e.printStackTrace()
-        println("SaldoInsuficienteException")
     }
 
 }

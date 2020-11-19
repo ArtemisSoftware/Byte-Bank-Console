@@ -1,5 +1,7 @@
 package com.artemis.software.modelos
 
+import com.artemis.software.exception.SaldoInsuficienteException
+
 
 abstract class Conta(var titular: Cliente, val numero: Int) {
 
@@ -24,15 +26,14 @@ abstract class Conta(var titular: Cliente, val numero: Int) {
 
     abstract fun levantamento(valor : Double)
 
-    fun transferir(valor : Double, contaDestino : Conta): Boolean {
-        if(saldo >= valor){
-            saldo -= valor
-            contaDestino.deposita(valor)
-            return true
+    fun transferir(valor : Double, contaDestino : Conta) {
+
+        if(saldo < valor){
+            throw SaldoInsuficienteException()
         }
-        else{
-            return false
-        }
+
+        saldo -= valor
+        contaDestino.deposita(valor)
     }
 
 }
