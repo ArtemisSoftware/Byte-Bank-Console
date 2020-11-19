@@ -40,14 +40,20 @@ fun main(){
     enderecoNulo = null
     enderecoNulo?.let {
         println("enderecoNulo?.logradouro it-: ${it.logradouro.length}")
+
     }
 
-    var enderecoNaoNulo= Endereco(logradouro = "o meu")
+    var enderecoNaoNulo= Endereco(logradouro = "o meu", complemento = "longo")
     println(enderecoNaoNulo.logradouro.length)
 
-    enderecoNaoNulo.logradouro.let {
-        println("enderecoNaoNulo.logradouro it: ${it}")
+    enderecoNaoNulo.let {
+        println("enderecoNaoNulo it: ${it}")
+
+        val tamanhoComplemento: Int = it.complemento?.length ?: throw  IllegalArgumentException("Complemento Não pode ser vazio")
+
+        println("tamanhoComplemento: ${tamanhoComplemento}")
+
     }
 
-
+    println("fim!!")
 }
