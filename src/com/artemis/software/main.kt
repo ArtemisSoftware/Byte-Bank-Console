@@ -8,12 +8,30 @@ fun main(){
 
     println("início main")
 
-    try{
-        10/0
+    val entrada: String = "1,9"
+
+
+    val valor: Double? = try{
+        entrada.toDouble()
     }
-    catch(e: ArithmeticException){
-        println("ArithmeticException ")
+    catch(e: NumberFormatException){
+        println("NumberFormatException message: ${e.message}")
+        println("NumberFormatException cause: ${e.cause}")
+        null
     }
+
+    println("Valor final: ${valor}")
+
+
+    val valorComTaxa : Double? = if(valor != null){
+        valor + 1
+    }
+    else{
+        null
+    }
+
+    println("valorComTaxa final: ${valorComTaxa}")
+
 
     funcao1()
     println("fim main")
