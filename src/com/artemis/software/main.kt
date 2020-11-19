@@ -35,6 +35,19 @@ fun main(){
     }
 
     var enderecoNulo: Endereco? = null
-    var enderecoNaoNulo = enderecoNulo!! //dá exception
-    enderecoNaoNulo.logradouro
+    println(enderecoNulo?.logradouro?.length)
+
+    enderecoNulo = null
+    enderecoNulo?.let {
+        println("enderecoNulo?.logradouro it-: ${it.logradouro.length}")
+    }
+
+    var enderecoNaoNulo= Endereco(logradouro = "o meu")
+    println(enderecoNaoNulo.logradouro.length)
+
+    enderecoNaoNulo.logradouro.let {
+        println("enderecoNaoNulo.logradouro it: ${it}")
+    }
+
+
 }
