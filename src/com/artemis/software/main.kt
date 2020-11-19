@@ -1,7 +1,9 @@
 package com.artemis.software
 
+import com.artemis.software.exception.SaldoInsuficienteException
 import com.artemis.software.modelos.*
 import java.lang.ClassCastException
+import java.lang.Exception
 
 
 fun main(){
@@ -11,9 +13,9 @@ fun main(){
     try{
         funcao2()
     }
-    catch (e : ClassCastException){
+    catch (e : SaldoInsuficienteException){
         e.printStackTrace()
-        println("ClassCastException")
+        println("SaldoInsuficienteException")
     }
 
 }
@@ -29,7 +31,7 @@ fun funcao2() {
     for (i in 1..5){
         println(i)
         val endereco = Any()
-        throw ClassCastException()
+        throw SaldoInsuficienteException()
 
     }
     println("fim funcao2")
