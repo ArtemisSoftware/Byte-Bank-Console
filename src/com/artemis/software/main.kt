@@ -14,8 +14,10 @@ fun main(){
     val contaJoao = ContaCorrente(joao, 1000)
     val contaPoupanca = ContaPoupanca(maria, 1001)
 
+    contaJoao.deposita(1000.0)
+
     try{
-        contaJoao.transferir(30000.0, contaPoupanca)
+        contaJoao.transferir(30.0, contaPoupanca, 4321)
         println("Transferencia realizada com sucesso")
     }
     catch (e : SaldoInsuficienteException){
